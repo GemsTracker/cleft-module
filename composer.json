@@ -27,12 +27,12 @@
   },
   "autoload": {
     "psr-4": {
-      "Module\\": "src"
+      "Gems\\Cleft\\": "src"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Module\\Test\\": "test\\"
+      "Gems\\Cleft\\Test\\": "test\\"
     }
   },
   "repositories": [

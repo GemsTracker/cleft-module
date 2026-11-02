@@ -8,26 +8,26 @@ declare(strict_types=1);
  * @author     Matijs de Jong <mjong@magnafacta.nl>
  */
 
-namespace Module;
+namespace Gems\Cleft;
 
 /**
  * @package    Module
  * @subpackage
  * @since      Class available since version 1.0
  */
-class ConfigProvider
+class CleftConfigProvider
 {
     public function __invoke(): array
     {
         return [
-//            'auth'            => $this->getAuthSettings(),
-//            'console'         => $this->getConsoleSettings(),
+            'auth'            => $this->getAuthSettings(),
+            'console'         => $this->getConsoleSettings(),
 //            'dependencies'    => $this->getDependencies(),
 //            'migrations'      => $this->getMigrations(),
 //            'overLoaderPaths' => ['Module'],
 //            'routes'          => $this->getRoutes(),
 //            'templates'       => $this->getTemplates(),
-//            'translations'    => $this->getTranslationSettings(),
+           'translations'    => $this->getTranslationSettings(),
         ];
     }
 
@@ -48,15 +48,16 @@ class ConfigProvider
     protected function getMigrations(): array
     {
         return [
+            /*
             'tables' => [
                 dirname(__DIR__) . '/configs/db/tables',
             ],
             /*'seeds' => [
                 dirname(__DIR__) . '/configs/db/seeds',
-            ],* /
+            ], */
             'patches' => [
-                dirname(__DIR__) . '/Config/Db/patches',
-            ], // */
+                dirname(__DIR__) . '/Config/Db/Patches',
+            ],
         ];
     }
 
@@ -74,4 +75,12 @@ class ConfigProvider
         ];
     }
 
+    public function getTranslationSettings(): array
+    {
+        return [
+            'paths' => [
+                'cleft' => dirname(__DIR__) . '/languages',
+            ],
+        ];
+    }
 }
